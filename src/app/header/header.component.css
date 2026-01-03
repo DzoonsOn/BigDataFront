@@ -1,0 +1,35 @@
+.header {
+  width: 100%;
+  padding: 2rem 0;
+  background-color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem;
+}
+
+.brand {
+  color: #ff0000;
+}
+
+.data {
+  color: #000000;
+}
+
+.welcome-text {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+}
