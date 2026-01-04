@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { BankDataPayload, PredictionResponse } from './form.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +11,13 @@ export class FormService {
 
   constructor(private http: HttpClient) {}
 
-  sendData(formData: any): Observable<any> {
+  sendData(formData: BankDataPayload): Observable<PredictionResponse> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
 
-    return this.http.post<any>(this.apiUrl, formData, { headers });
+    return this.http.post<PredictionResponse>(this.apiUrl, formData, {
+      headers,
+    });
   }
 }
