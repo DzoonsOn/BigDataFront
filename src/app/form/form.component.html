@@ -1,3 +1,15 @@
+<div class="modal-overlay" *ngIf="showModal">
+    <div class="modal-content">
+        <h3>Wynik analizy Big Data</h3>
+        <div class="result-icon" [class.success]="predictionResult" [class.fail]="!predictionResult">
+            {{ predictionResult ? '✔️' : '❌' }}
+        </div>
+        <p>Odpowiedź serwera (Prediction): <strong>{{ predictionResult }}</strong></p>
+        <p>{{ predictionResult ? 'True.' : 'False.' }}</p>
+        <button (click)="closeModal()" class="close-btn">Zamknij</button>
+    </div>
+</div>
+
 <div class="container">
     <form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="big-data-form">
         <h3><span class="red">Add</span> Record to Dataset</h3>

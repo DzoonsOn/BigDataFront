@@ -10,7 +10,9 @@ import { FormService } from './form.service';
 })
 export class FormComponent implements OnInit {
   dataForm!: FormGroup;
-  isLoading = false; // Flaga ładowania
+  isLoading = false;
+  showModal = false;
+  predictionResult = false;
 
   constructor(private fb: FormBuilder, private formService: FormService) {}
 
@@ -40,9 +42,11 @@ export class FormComponent implements OnInit {
       const payload = this.dataForm.value;
 
       this.formService.sendData(payload).subscribe({
-        next: (response) => {
-          console.log('Sukces! Backend odpowiedział:', response);
+        next: (data) => {
+          console.log('Sukces! Backend odpowiedział:', data);
           alert('Dane zostały wysłane pomyślnie!');
+          this.predictionResult = data.response; // lub data.prediction
+          this.showModal = true;
           this.isLoading = false;
         },
         error: (err) => {
@@ -52,5 +56,9 @@ export class FormComponent implements OnInit {
         },
       });
     }
+  }
+
+  closeModal() {
+    this.showModal = false;
   }
 }
