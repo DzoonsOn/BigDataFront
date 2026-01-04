@@ -45,7 +45,7 @@ export class FormComponent implements OnInit {
         next: (data) => {
           console.log('Sukces! Backend odpowiedział:', data);
           alert('Dane zostały wysłane pomyślnie!');
-          this.predictionResult = data.response; // lub data.prediction
+          this.predictionResult = data.response;
           this.showModal = true;
           this.isLoading = false;
         },
